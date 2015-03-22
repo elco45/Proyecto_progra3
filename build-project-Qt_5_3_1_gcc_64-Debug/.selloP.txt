@@ -1,0 +1,13 @@
+	Sello Prohibido 0
+Sello #1:
+Elementos:
+	Fuego/Fuego
+Costo de Mana:
+	4mp
+Sello #2:
+Elementos:
+	Fuego/Fuego
+Costo de Mana:
+	4mp
+
+Total Costo de Mana para el Sello Prohibido: 8
