@@ -75,6 +75,7 @@ void crear::ochanged(int n){
             mana+=tempH.at(i)->costoMana();
         }
         h_sello->terminate();
+        ui->crearHechizos->setEnabled(true);
         while(ui->tabla1->rowCount()>0){
             ui->tabla1->removeRow(0);
         }
@@ -155,6 +156,7 @@ void crear::on_crearHechizos_clicked(){
                 ui->tf_nombre->setText("");
                 ui->tf_potencia->setText("");
                 cont1=0;
+                ui->crearHechizos->setEnabled(false);
                 h_sello->start();
             }
         }

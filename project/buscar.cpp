@@ -9,6 +9,7 @@
 #include <QMessageBox>
 #include <QFile>
 #include <QTextStream>
+#include <QFileDialog>
 using namespace std;
 
 buscar::buscar(QWidget *parent,vector<selloP>* l_h) :
@@ -81,9 +82,19 @@ void buscar::on_bt_obs_clicked(){
 }
 
 void buscar::on_bt_exp_clicked(){
-    QString filename="./text/selloP.txt";
-    write(filename);
-    ui->ta_selloP->setText("");
-    QMessageBox box;
-    box.information(0,"Informacion","Se a agregado exitosamente!");
+    //QString filename="./text/selloP.txt";
+    try{
+        QString filename = QFileDialog::getSaveFileName(
+                    this,
+                    tr("Save Document"),
+                    QDir::currentPath(),
+                    tr("Documents (*.doc)") );
+        write(filename);
+        ui->ta_selloP->setText("");
+        QMessageBox box;
+        //box.information(0,"Informacion","Se a agregado exitosamente!");
+    }catch(exception &e){
+
+    }
+
 }

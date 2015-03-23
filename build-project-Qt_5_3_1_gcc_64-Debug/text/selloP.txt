@@ -3,11 +3,11 @@ Sello #1:
 Elementos:
 	Fuego/Fuego
 Costo de Mana:
-	4mp
+	6mp
 Sello #2:
 Elementos:
 	Fuego/Fuego
 Costo de Mana:
-	4mp
+	12mp
 
-Total Costo de Mana para el Sello Prohibido: 8
+Total Costo de Mana para el Sello Prohibido: 18
