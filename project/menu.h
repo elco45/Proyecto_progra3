@@ -16,7 +16,7 @@ class menu : public QDialog
     Q_OBJECT
 
 public:
-    explicit menu(QWidget *parent = 0,vector<selloP>* =0,int=0);
+    explicit menu(QWidget *parent = 0,vector<selloP*>* =0,int=0);
     ~menu();
 
 private slots:
@@ -26,7 +26,7 @@ private slots:
 
 private:
     Ui::menu *ui;
-    vector<selloP>* l_selloP;
+    vector<selloP*>* l_selloP;
     int cont;
 };
 

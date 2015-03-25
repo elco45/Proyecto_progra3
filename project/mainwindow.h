@@ -24,7 +24,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    vector<selloP>* l_s;
+    vector<selloP*>* l_s;
     int contador1;
     int contador2;
 };

@@ -9,7 +9,7 @@
 using namespace std;
 
 
-menu::menu(QWidget *parent,vector<selloP>* l_h,int contador1) :
+menu::menu(QWidget *parent,vector<selloP*>* l_h,int contador1) :
     QDialog(parent),
     ui(new Ui::menu)
 {

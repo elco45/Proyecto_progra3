@@ -25,9 +25,9 @@ QString selloP::toString(int cont)const{
     QString ss="\tSello Prohibido "+QString::number(cont)+"\n";
     ss+="Sello #1:\n";
     ss+="Elementos:\n";
-    ss+="\t"+sellos.at(cont)->toString()+"\n";
+    ss+="\t"+sellos.at(0)->toString()+"\n";
     ss+="Costo de Mana:\n";
-    ss+="\t"+QString::number(sellos.at(cont)->getCost())+"mp\n";
+    ss+="\t"+QString::number(sellos.at(0)->getCost())+"mp\n";
     ss+="Sello #2:\n";
     ss+="Elementos:\n";
     ss+="\t"+sellos.at(1)->toString()+"\n";

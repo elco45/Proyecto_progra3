@@ -14,7 +14,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
-    l_s = new vector<selloP>();
+    l_s = new vector<selloP*>();
     contador1=1;
     contador2=1;
     ui->setupUi(this);

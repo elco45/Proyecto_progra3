@@ -22,7 +22,7 @@ class buscar : public QDialog
     void addChild(QTreeWidgetItem *parent,QString name);
     void write(QString filename);
 public:
-    explicit buscar(QWidget *parent = 0,vector<selloP>* =0);
+    explicit buscar(QWidget *parent = 0,vector<selloP*>* =0);
     ~buscar();
     QTextEdit* getTa();
     QTreeWidget* getTree();
@@ -31,9 +31,11 @@ private slots:
 
     void on_bt_exp_clicked();
 
+    void on_tw_selloP_doubleClicked(const QModelIndex &index);
+
 private:
     Ui::buscar *ui;
-    vector<selloP>* l_selloP;
+    vector<selloP*>* l_selloP;
 };
 
 #endif // BUSCAR_H

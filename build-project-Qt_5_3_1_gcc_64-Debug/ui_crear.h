@@ -47,7 +47,7 @@ public:
     {
         if (crear->objectName().isEmpty())
             crear->setObjectName(QStringLiteral("crear"));
-        crear->resize(628, 596);
+        crear->resize(630, 596);
         label_2 = new QLabel(crear);
         label_2->setObjectName(QStringLiteral("label_2"));
         label_2->setGeometry(QRect(80, 20, 231, 17));

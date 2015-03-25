@@ -13,7 +13,7 @@ using namespace std;
 
 vector<hechizo*> tempH;
 vector<sello*> tempS;
-crear::crear(QWidget *parent,vector<selloP>* l_h,int contador1,int contador2) :
+crear::crear(QWidget *parent,vector<selloP*>* l_h,int contador1,int contador2) :
     QDialog(parent),
     ui(new Ui::crear)
 
@@ -50,7 +50,7 @@ void crear::ocambio(){
     }
     selloP* sp=NULL;
     sp=new selloP(mana,tempS);
-    l_selloP->push_back(*sp);
+    l_selloP->push_back(sp);
     QMessageBox box;
     h_selloP->terminate();
     QPalette pal;
@@ -66,6 +66,7 @@ void crear::ocambio(){
     this->setPalette(pal1);
     cont2=0;
     tempS.clear();
+
 }
 
 void crear::ochanged(int n){
@@ -75,10 +76,14 @@ void crear::ochanged(int n){
             mana+=tempH.at(i)->costoMana();
         }
         h_sello->terminate();
+        ui->crearHechizos->setEnabled(true);
         while(ui->tabla1->rowCount()>0){
             ui->tabla1->removeRow(0);
         }
-
+        sello* seal;
+        seal=new sello(mana,tempH);
+        tempS.push_back(seal);
+        tempH.clear();
         //sellos prohibidos
         if(ui->tabla2->rowCount()==1){
             h_selloP->start();
@@ -86,16 +91,12 @@ void crear::ochanged(int n){
         ui->lb->setText("");
         ui->tf_nombre->setText("");
         ui->tf_potencia->setText("");
-        sello* seal=NULL;
-        seal=new sello(mana,tempH);
         QTableWidgetItem *item1=new QTableWidgetItem(seal->toString());
         QTableWidgetItem *item2=new QTableWidgetItem(seal->c_mana());
         ui->tabla2->insertRow(cont2);
         ui->tabla2->setItem(cont2,0,item1);
         ui->tabla2->setItem(cont2,1,item2);
         cont2++;
-        tempS.push_back(seal);
-        tempH.clear();
 
     }else{
         ui->lb->setText(QString::number(n));
@@ -155,9 +156,11 @@ void crear::on_crearHechizos_clicked(){
                 ui->tf_nombre->setText("");
                 ui->tf_potencia->setText("");
                 cont1=0;
+                ui->crearHechizos->setEnabled(false);
                 h_sello->start();
             }
         }
+
     }catch(exception & e){
 
     }

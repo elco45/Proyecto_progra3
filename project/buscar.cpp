@@ -9,9 +9,10 @@
 #include <QMessageBox>
 #include <QFile>
 #include <QTextStream>
+#include <QFileDialog>
 using namespace std;
 
-buscar::buscar(QWidget *parent,vector<selloP>* l_h) :
+buscar::buscar(QWidget *parent,vector<selloP*>* l_h) :
     QDialog(parent),
     ui(new Ui::buscar)
 {
@@ -73,7 +74,7 @@ void buscar::write(QString filename){
 void buscar::on_bt_obs_clicked(){
     try{
         int pos=ui->tw_selloP->currentIndex().row();
-        ui->ta_selloP->setText(l_selloP->at(pos).toString(pos));
+        ui->ta_selloP->setText(l_selloP->at(pos)->toString(pos));
     }catch(exception &e){
         QMessageBox box;
         box.critical(0,"Error","No ha seleccionado ningun sello!");
@@ -81,9 +82,30 @@ void buscar::on_bt_obs_clicked(){
 }
 
 void buscar::on_bt_exp_clicked(){
-    QString filename="./text/selloP.txt";
-    write(filename);
-    ui->ta_selloP->setText("");
-    QMessageBox box;
-    box.information(0,"Informacion","Se a agregado exitosamente!");
+    //QString filename="./text/selloP.txt";
+    try{
+        QString filename = QFileDialog::getSaveFileName(
+                    this,
+                    tr("Save Document"),
+                    QDir::currentPath(),
+                    tr("Documents (*.doc)") );
+        write(filename);
+        ui->ta_selloP->setText("");
+        QMessageBox box;
+        //box.information(0,"Informacion","Se a agregado exitosamente!");
+    }catch(exception &e){
+
+    }
+
+}
+
+void buscar::on_tw_selloP_doubleClicked(const QModelIndex &index)
+{
+    try{
+        int pos=ui->tw_selloP->currentIndex().row();
+        ui->ta_selloP->setText(l_selloP->at(pos)->toString(pos));
+    }catch(exception &e){
+        QMessageBox box;
+        box.critical(0,"Error","No ha seleccionado ningun sello!");
+    }
 }
