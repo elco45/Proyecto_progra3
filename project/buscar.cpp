@@ -97,6 +97,7 @@ void buscar::on_bt_exp_clicked(){
 
     }
 
+<<<<<<< HEAD
 }
 
 void buscar::on_tw_selloP_doubleClicked(const QModelIndex &index)
@@ -108,4 +109,6 @@ void buscar::on_tw_selloP_doubleClicked(const QModelIndex &index)
         QMessageBox box;
         box.critical(0,"Error","No ha seleccionado ningun sello!");
     }
+=======
+>>>>>>> 7258e18dedab4400a8499ceb18874e8620cce711
 }
